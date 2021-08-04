@@ -1,0 +1,23 @@
+{
+  "name": "eventwalker",
+  "version": "1.0.0",
+  "description": "name: Node.js CI",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EventWalkerApp/EventWalker.git"
+  },
+  "author": "sunbabaara",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EventWalkerApp/EventWalker/issues"
+  },
+  "homepage": "https://github.com/EventWalkerApp/EventWalker#readme"
+}
