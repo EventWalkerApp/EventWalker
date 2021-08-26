@@ -38,7 +38,7 @@ const deleteEvent = async (req, res)=>{
     const foundEvent = await Event.findById(req.params._id)
     if(foundEvent){
        foundEvent.remove()
-       res.json({msg:`${foundEvent.name} removed`})
+       res.json({msg:`${foundEvent.eventname} removed`})
        
     } 
     else {
@@ -66,6 +66,8 @@ const updateEvent = async (req, res)=>{
 
         const updatedEvent = await foundEvent.save();
         res.json({updatedEvent})
+    }else{
+        res.json({error:"event not found"})
     }
 }
 

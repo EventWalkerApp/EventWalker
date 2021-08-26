@@ -1,7 +1,9 @@
 const mongoose = require ("mongoose")
 
 const eventSchema = mongoose.Schema({
-  
+  createdby:{
+      type: new mongoose.Schema.Types.ObjectId, ref: "User"
+  },
     eventname:{
         type: String,
         required: true

@@ -1,10 +1,16 @@
 const User = require("../models/userSchema")
 const bcrypt = require("bcryptjs");
+const {validateAddUser} = require("../validations/userValidation")
 
 
 
 
 const addUser = async(req, res)=>{
+
+     //validate a user
+     const { error}= validateAddUser.validate(req.body);
+     if (error) return res.status(403).send(error.details[0].message)
+ 
  
      //complexity level and hashing using bcrypt
      const salt =await bcrypt.genSalt(10)
@@ -47,4 +53,4 @@ const userLogin = async (req, res)=>{
 
 
 
-module.exports ={ addUser};
+module.exports ={ addUser, userLogin};

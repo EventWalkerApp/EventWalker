@@ -1,7 +1,14 @@
 const mongoose = require("mongoose")
 
 const userSchema =new mongoose.Schema({
-
+    role:{
+    type: String,
+        required: true,
+        enum:[
+"EVENT-MANAGER" , "EVENT-ATTENDEE"
+        ],
+    default: "EVENT-ATTENDEE"
+},
     email: {
         type: String,
         required: true
