@@ -1,6 +1,7 @@
 const User = require("../models/userSchema")
 const bcrypt = require("bcryptjs");
-const {validateAddUser} = require("../validations/userValidation")
+const {validateAddUser} = require("../validations/userValidation");
+const generateToken = require("../utils/generateToken");
 
 
 
@@ -22,13 +23,15 @@ if (userFound) return res.status(403).send("email already exist");
 
 const newUser = new User({
    email: req.body.email,
-   password: hashedPassword,
+    password: hashedPassword,
+  
 });
 await newUser.save();
 res.status(201).json({
     _id: newUser._id,
     email:newUser.email,
-    password:newUser.password
+    password: newUser.password,
+    token: generateToken(newUser._id)
 });
 }
 
@@ -45,8 +48,8 @@ const userLogin = async (req, res)=>{
      //res.header("authorization", token_id).send(token_id);
      res.status(202).json({
             _id: user._id,
-            email:user.email,
-           
+         email: user.email,
+    token: generateToken(user._id)       
         
      })
 } 

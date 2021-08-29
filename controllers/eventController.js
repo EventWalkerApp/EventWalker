@@ -4,6 +4,7 @@ const Event = require("../models/eventSchema");
 const createEvent = async (req, res)=>{
     const newEvent = new Event(
         {
+            createdby:req.user._id,
             eventname:req.body.eventname,
             description:req.body.description,
             image:req.body.image,

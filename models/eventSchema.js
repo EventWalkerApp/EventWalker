@@ -1,8 +1,12 @@
 const mongoose = require ("mongoose")
 
-const eventSchema = mongoose.Schema({
+const {model, Schema }=mongoose
+
+const eventSchema = Schema({
   createdby:{
-      type: new mongoose.Types.ObjectId, ref: "User"
+        type:Schema.Types.ObjectId,
+      required: true,
+      ref: "User", 
   },
     eventname:{
         type: String,
@@ -48,5 +52,5 @@ const eventSchema = mongoose.Schema({
     timestamp:true
 })
 
-const Event = mongoose.model("Event", eventSchema)
+const Event = model("Event", eventSchema)
 module.exports = Event;
