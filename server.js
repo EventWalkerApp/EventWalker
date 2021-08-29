@@ -19,7 +19,7 @@ app.use(morgan("dev"));
 app.use(cors());
 
 //routes
-app.use("/api/event", eventRoute)
+app.use("/api/events", eventRoute)
 app.use("/api/users", usersRoute)
 
 //home route
