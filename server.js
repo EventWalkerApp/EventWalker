@@ -27,8 +27,9 @@ app.get("/", function(req, res){
     res.render("WELCOME")
 });
 
+const PORT= process.env.PORT || 5003
 
 //start server
-app.listen(5003, function(){
+app.listen(PORT, function(){
     console.log("server started on port 5003");
 });
