@@ -24,7 +24,7 @@ app.use("/api/users", usersRoute)
 
 //home route
 app.get("/", function(req, res){
-    res.render("WELCOME")
+    res.send("<h1>WELCOME</h1>")
 });
 
 const PORT= process.env.PORT || 5003
