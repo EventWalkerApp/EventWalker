@@ -6,7 +6,7 @@ const router = express.Router()
 
 router.route("/")
 .post(createEvent)
-.get(getAllEvents)
+.get(protect, getAllEvents)
 
 
 router.route("/:_id")
